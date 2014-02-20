@@ -1,0 +1,5 @@
+# Don't commit compiled files
+*.pdf
+*.aux
+*.log
+
