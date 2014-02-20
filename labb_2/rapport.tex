@@ -2,6 +2,10 @@
 \usepackage{fixltx2e}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage{fancyhdr}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\headheight}{21pt}
 
 \begin{document}
 
@@ -33,14 +37,43 @@ Hans-Filip \textsc{Elo} och Niklas \textsc{Ericson}
 
 % Slut på titelsida. ---------------------
 
+% Innehåll ------------------------------
+
+%header ---------------------------------
+\pagestyle{fancy}
+
+\fancyhead{} % clear all header fields
+\fancyhead[L]{TSRT12\slshape}
+\fancyhead[R]{\today \slshape}
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L,R]{\thepage}
+\fancyfoot[L]{Modellbaserad reglering av dubbeltankar}
+
+%slut på header ---------------------------------
+
+
 \section{Inledning}
-Detta {\"a}r en laborationsrapport p{\aa} reglersystem av pumpen till inloppet för tv{\aa} vattentankar med sammankopplade ut - och inlopp. Systemet skissas nedan i figur 1. 
+En överföringsfunktions egenskaper så som stigtid, översläng och felmarginal går att påverka genom att multiplicera funktionen med en deriverande, F\textsubscript{lead}, och en integrerande, F\textsubscript{lag}, funktion. En laboration med ett dubbeltanksystem har genomförts för att applicera teorin i verkligheten.
 
 \subsection{Syfte}
-Att framst{\"a}lla en modell för automatisk reglering av {\"o}nskad vattenniv{\aa} i den undre tanken. 
+Syftet med laborationen var att utifrån en given överföringsfunktion, förändra systemets egenskaper med hjälp av Lead och Lag funktioner.
 
 \section{Metod}
+Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända konstanter, {\itshape T} och {\itshape K}\textsubscript{dubbel} och den andra delen bestod i att ta fram en F\textsubscript{lead} och en F\textsubscript{lag} funktion som gav önskade egenskaper på systemet.
 
+\subsection{Framtagning av T och K\textsubscript{dubbel}}
+I föreberedelseuppgifterna till laboration visades det att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. 
+
+\subsection{Förändring av systemets egenskaper}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=70mm]{System.png}
+\caption{Visualisering av labuppkopplingen}
+\label{overflow}
+\end{figure}
 
 \subsection{Materiel}
 
