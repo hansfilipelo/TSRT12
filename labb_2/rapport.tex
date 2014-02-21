@@ -5,6 +5,10 @@
 \usepackage{sidecap}
 \usepackage{fancyhdr}
 \usepackage[margin=1.5in]{geometry}
+\usepackage{amssymb,amsmath}
+\usepackage[swedish]{babel}
+
+
 \setlength{\headheight}{21pt}
 
 \begin{document}
@@ -33,18 +37,17 @@ Hans-Filip \textsc{Elo} och Niklas \textsc{Ericson}
 {\large \today}
 
 \end{center}
-\end{titlepage}
 
 % Slut på titelsida. ---------------------
 
 % Innehåll ------------------------------
-
-\renewcommand{\contentsname}{Innehållsförteckning}
-\renewcommand{\listfigurename}{Figurföretckning}
+\newpage
+\thispagestyle{empty}
 \tableofcontents
 \listoffigures
-\newpage
+\listoftables
 
+\end{titlepage}
 %header ---------------------------------
 \pagestyle{fancy}
 
@@ -69,7 +72,58 @@ Syftet med laborationen var att utifrån en given överföringsfunktion, förän
 Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända konstanter, {\itshape T} och {\itshape K}\textsubscript{dubbel} och den andra delen bestod i att ta fram en F\textsubscript{lead} och en F\textsubscript{lag} funktion som gav önskade egenskaper på systemet.
 
 \subsection{Framtagning av T och K\textsubscript{dubbel}}
-I föreberedelseuppgifterna till laboration visades det att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. 
+I förberedelseuppgifterna till laboration visades att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. Ekvationen för ett första ordningens system ser ut som i (1) nedan. Väl i laborationen sattes en arbetspunkt på 10cm och utifrån denna applicerades en spänningsökning som motsvarar ett enhetssteg. När nivån hade nått 10,63 lästes tidskonstanten, {\itshape T} ut som den tid det tagit från att steget applicerats. 
+
+\begin{equation}
+\delta_{h1}(t)= c*K_{enkel}*(1-e^{\frac{-t}{T}})
+\end{equation}
+\\
+Mätningen utfördes 3 gånger med samma steg från samma arbetspunkt. Resultatet av mätningarna ges i tabell 1 nedan. Arbetspunkten var under mätningarna 10cm (1,23V). Enhetssteget ökade nivån genom att spänningsnivån höjdes till 1,28V. 
+
+\begin{table}[ht] 
+\centering 
+\begin{tabular}{c c} 
+Försök & T \\ [0.5ex] % inserts table heading
+\hline
+1 & 17 \\
+2 & 18 \\
+3 & 20 \\
+
+\end{tabular} 
+\caption{Tabell över mätvärden på tidskonstanten.}
+
+\end{table}
+~\\ %weird ass quickfix
+Medelvärdet på T räknades ut till T=18.4 och därmed var tidskonstanten bestämd. 
+Bestämningen av K\textsubscript{dubbel} gick till på liknande vis. En ekvation söktes för K\textsubscript{dubbel} och vid stationaritet kan slutvärdessatsen användas se ekvation 2. 
+ 
+\begin{equation}
+\lim\limits_{t \to \infty}y(t) = \lim\limits_{s \to 0}sY(s)
+\end{equation}
+\pagebreak
+\\
+Utsignalen för dubbeltankssystemet fås alltså vid stationaritet enligt ekvation 3 där u är den spänning som applicerats för att utföra steget. 
+\begin{equation}
+\delta_{h1}(t)=\lim\limits_{s \to 0}s*\frac{K_{dubbel}}{(1+s)^2}*\frac{u}{s}=uK_{dubbel}
+\end{equation}
+\\
+Mätningen utfördes även här tre gånger men denna gång var steget lite olika från gång till gång. Resultatet av mätningarna ges i tabell 2 nedan. Arbetspunkten var under mätningarna 10cm (1,09V). Enhetssteget ökade nivån genom att spänningsnivån höjdes till 1,14V dvs med u=0,05V. 
+
+\begin{table}[ht] 
+\centering 
+\begin{tabular}{c c} 
+Försök & $\delta_{h2}$ \\ [0.5ex] % inserts table heading
+\hline
+1 & 1,46 \\
+2 & 1,07 \\
+3 & 1,36 \\
+
+\end{tabular} 
+\caption{Tabell över mätvärden på $\delta_{h2}$.}
+\end{table}
+~\\ %weird ass quickfix
+Medelvärdet räknades ut till $\delta_{h2}=1,3$ vilket dividerat på u=0,05V ger K\textsubscript{dubbel}=25,9
+
 
 \subsection{Förändring av systemets egenskaper}
 
