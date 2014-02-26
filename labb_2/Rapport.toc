@@ -5,11 +5,12 @@
 \contentsline {subsection}{\numberline {3.1}Framtagning av konstanter}{1}
 \contentsline {subsubsection}{\numberline {3.1.1}Att ta fram {\itshape T}}{1}
 \contentsline {subsubsection}{\numberline {3.1.2}Att ta fram K\textsubscript {dubbel}}{2}
-\contentsline {subsection}{\numberline {3.2}Skapa l\IeC {\"a}mpliga F\textsubscript {lead} och F\textsubscript {lag}}{2}
+\contentsline {subsection}{\numberline {3.2}Anpassning av systemets egenskaper}{2}
 \contentsline {subsection}{\numberline {3.3}Materiel}{3}
 \contentsline {section}{\numberline {4}Resultat}{4}
-\contentsline {subsection}{\numberline {4.1}F\IeC {\"o}r\IeC {\"a}ndring av systemets egenskaper}{5}
-\contentsline {section}{\numberline {5}Slutsats}{5}
-\contentsline {section}{\numberline {6}K\IeC {\"a}llor}{6}
-\contentsline {section}{\numberline {7}Appendix A}{7}
-\contentsline {subsection}{\numberline {7.1}Framtagning av T och K\textsubscript {dubbel}}{7}
+\contentsline {subsection}{\numberline {4.1}Konstanten T}{4}
+\contentsline {subsection}{\numberline {4.2}Konstanten K\textsubscript {dubbel}}{4}
+\contentsline {subsection}{\numberline {4.3}F\IeC {\"o}r\IeC {\"a}ndring av systemets egenskaper}{5}
+\contentsline {section}{\numberline {5}Slutsats}{6}
+\contentsline {section}{\numberline {6}K\IeC {\"a}llor}{7}
+\contentsline {section}{\numberline {7}Appendix A}{8}
