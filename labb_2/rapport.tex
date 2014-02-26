@@ -94,8 +94,13 @@ Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända
 
 Vid samtliga tillfällen då ett steg används under laborationen används höjs vattennivån med en enhet från arbetspunkten 10 cm till 11 cm.
 
+% ----- Konstanter ---
+
 \subsection{Framtagning av konstanter}
 Konstanterna kan bägge två lösas ut ur given överföringsfunktion för systemet, men resulterar då i en ekvation med två okända. Vi kommer alltså att behöva göra mätningar för att approximera aktuella konstanter. 
+
+
+% ----- T ---
 
 \subsubsection{Att ta fram {\itshape T}}
 Konstanten {\itshape T} går att finna genom att skicka in ett steg i systemet och mäta stigtiden för utsignalen till 63\% av steget i utsignalen. Detta fås ur överföringsfunktionen för en av tankarna och laplacetransformen av ett enhetssteg (1/s) enligt nedan. 
@@ -112,6 +117,9 @@ T = \frac{-t}{ln{0,37}} \approx t
 \\
 Där tiden t är tiden då utsignalen nått upp till 0,63\% av differensen mellan stationär vattennivån innan och efter stegskillnad getts i insignal. Man behöver alltså göra mätningar för att finna T. 
 \\
+
+
+% ----- Kdubbel ---
 
 \subsubsection{Att ta fram K\textsubscript{dubbel}}
 K\textsubscript{dubbel} kan ges genom att skicka in ett steg i systemet och sedan göra mätningar vid stationärt tillstånd. Multiplicerar vi överföringsfunktionen med ett laplacetransformen för ett steg får vi. 
@@ -132,6 +140,9 @@ Detta ger att K\textsubscript{dubbel} kan lösas ut som.
 K_{dubbel} = \frac{\delta_{h2}(s)}{C}
 \end{equation}
 \\
+
+
+% ----- Fleadlag ---
 
 \subsection{Skapa lämpliga F\textsubscript{lead} och F\textsubscript{lag}}
 För att förbättra systemets egenskaper och uppnå givna specifikationer använder vi oss av metoder som Glad och Ljung (2006) beskriver rörande kompensering med hjälp av bodediagram. Denna metod kompletteras sedan med ett egenskrivet matlabscript, vilket finns tillgängligt i Appendix A, för snabbare beräkningar av F\textsubscript{lead} och F\textsubscript{lag}. 
@@ -170,6 +181,7 @@ Labbutrustningen som används består av en pump kopplad till ett system av två
 Pumpens reglersystem består av en spänningsregulator, mätsensorer för vattennivå samt programvara för PC baserad på LabView.
 
 % ------------- Resultat -----------------------
+% Inte kommit längre än såhär /hanel742
 
 \section{Resultat}
 Mätningen utfördes 3 gånger med samma steg från samma arbetspunkt. Resultatet av mätningarna ges i tabell 1 nedan. Arbetspunkten var under mätningarna 10cm (1,23V). Enhetssteget ökade nivån genom att spänningsnivån höjdes till 1,28V. 
