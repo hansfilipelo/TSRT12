@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1.5in]{geometry}
 \usepackage{amssymb,amsmath}
+\usepackage[euler]{textgreek}
 \usepackage[swedish]{babel}
 
 
@@ -65,11 +66,43 @@ Hans-Filip \textsc{Elo} och Niklas \textsc{Ericson}
 \section{Inledning}
 En överföringsfunktions egenskaper så som stigtid, översläng och felmarginal går att påverka genom att multiplicera funktionen med en deriverande, F\textsubscript{lead}, och en integrerande, F\textsubscript{lag}, funktion. En laboration med ett dubbeltanksystem har genomförts för att applicera teorin i verkligheten.
 
-\subsection{Syfte}
-Syftet med laborationen var att utifrån en given överföringsfunktion, förändra systemets egenskaper med hjälp av Lead och Lag funktioner.
+\section{Syfte}
+Syftet med laborationen var att färdigställa en överföringsfunktion för systemet med dubbeltankar och sedan reglera systemet så det uppnår givna specifikationskrav. 
 
 \section{Metod}
-Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända konstanter, {\itshape T} och {\itshape K}\textsubscript{dubbel} och den andra delen bestod i att ta fram en F\textsubscript{lead} och en F\textsubscript{lag} funktion som gav önskade egenskaper på systemet.
+
+En överföringsfunktion för systemet var given enligt nedan. 
+
+\begin{equation}
+G\textsubscript{dubbel}(s) = \frac{K_{enkel1}}{sT+1} * \frac{K_{enkel2}}{sT+1} = \frac{K\textsubscript{dubbel}}{(sT+1)^2}
+\end{equation}
+\\
+Där {\itshape T}, K\textsubscript{enkel1} och K\textsubscript{enkel2} är konstanter. K\textsubscript{dubbel} är produkten av K\textsubscript{enkel1} och K\textsubscript{enkel2}. 
+\\
+\\
+Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända konstanter, {\itshape T} och {\itshape K}\textsubscript{dubbel}, medan den andra delen bestod i att ta fram en F\textsubscript{lead} och en F\textsubscript{lag} funktion som gav önskade egenskaper på systemet. 
+\\
+
+\subsection{Framtagning av konstanter}
+Konstanterna kan bägge två lösas ut ur givet stegsvar för systemet, men resulterar då i en ekvation med två okända. Vi kommer alltså att behöva göra mätningar för att approximera aktuella konstanter. 
+
+\subsubsection{Att ta fram {\itshape T}}
+Konstanten {\itshape T} går att finna genom att skicka in ett steg i systemet och mäta stigtiden för utsignalen till 63\% av steget i utsignalen. Detta fås ur överföringsfunktionen för en av tankarna och laplacetransformen av ett enhetssteg (1/s) enligt nedan. 
+
+\begin{equation}
+\delta_{u}(s) = \frac{C * K_{enkel1}}{sT+1}{(sT+1)s}
+\end{equation}
+\\
+Där \textdelta\textsubscript{u}(s) är skillnaden i utsignalen (vattennivå) och C är höjden på steget in. Inverstransformerar man sedan detta och sätter \textdelta\textsubscript{u}(t) = 0,63K\textsubscript{enkel}C. Löser man sedan ut {\itshape T} detta får man enligt ekvation nedan. 
+
+\begin{equation}
+T = \frac{-t}{ln{0,37}} \approx t
+\end{equation}
+\\
+Där tiden t är tiden då utsignalen nått upp till 0,63\% av differensen mellan stationär vattennivån innan och efter stegskillnad getts i insignal. Man behöver alltså göra mätningar för att finna T. 
+\\
+
+\subsubsection{Att ta fram K\textsubscript{dubbel}}
 
 \subsection{Framtagning av T och K\textsubscript{dubbel}}
 I förberedelseuppgifterna till laboration visades att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. Ekvationen för ett första ordningens system ser ut som i (1) nedan. Väl i laborationen sattes en arbetspunkt på 10cm och utifrån denna applicerades en spänningsökning som motsvarar ett enhetssteg. När nivån hade nått 10,63 lästes tidskonstanten, {\itshape T} ut som den tid det tagit från att steget applicerats. 
@@ -78,6 +111,12 @@ I förberedelseuppgifterna till laboration visades att tidskonstanten, {\itshape
 \delta_{h1}(t)= c*K_{enkel}*(1-e^{\frac{-t}{T}})
 \end{equation}
 \\
+
+\subsection{Materiel}
+
+\subsection{Specifikationer}
+
+\section{Resultat}
 Mätningen utfördes 3 gånger med samma steg från samma arbetspunkt. Resultatet av mätningarna ges i tabell 1 nedan. Arbetspunkten var under mätningarna 10cm (1,23V). Enhetssteget ökade nivån genom att spänningsnivån höjdes till 1,28V. 
 
 \begin{table}[ht] 
@@ -134,10 +173,6 @@ Medelvärdet räknades ut till $\delta_{h2}=1,3$ vilket dividerat på u=0,05V ge
 \caption{Visualisering av labuppkopplingen}
 \label{overflow}
 \end{figure}
-
-\subsection{Materiel}
-
-\section{Resultat}
 
 \begin{figure}[ht!]
 \centering
