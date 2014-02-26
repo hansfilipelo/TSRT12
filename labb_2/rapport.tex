@@ -8,6 +8,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage[euler]{textgreek}
 \usepackage[swedish]{babel}
+\usepackage{mcode}
 
 
 \setlength{\headheight}{21pt}
@@ -84,16 +85,16 @@ Laborationen bestod av 2 delar. Första delen bestod av att ta fram två okända
 \\
 
 \subsection{Framtagning av konstanter}
-Konstanterna kan bägge två lösas ut ur givet stegsvar för systemet, men resulterar då i en ekvation med två okända. Vi kommer alltså att behöva göra mätningar för att approximera aktuella konstanter. 
+Konstanterna kan bägge två lösas ut ur given överföringsfunktion för systemet, men resulterar då i en ekvation med två okända. Vi kommer alltså att behöva göra mätningar för att approximera aktuella konstanter. 
 
 \subsubsection{Att ta fram {\itshape T}}
 Konstanten {\itshape T} går att finna genom att skicka in ett steg i systemet och mäta stigtiden för utsignalen till 63\% av steget i utsignalen. Detta fås ur överföringsfunktionen för en av tankarna och laplacetransformen av ett enhetssteg (1/s) enligt nedan. 
 
 \begin{equation}
-\delta_{u}(s) = \frac{C * K_{enkel1}}{sT+1}{(sT+1)s}
+\delta_{h1}(s) = \frac{C * K_{enkel1}}{sT+1}{(sT+1)s}
 \end{equation}
 \\
-Där \textdelta\textsubscript{u}(s) är skillnaden i utsignalen (vattennivå) och C är höjden på steget in. Inverstransformerar man sedan detta och sätter \textdelta\textsubscript{u}(t) = 0,63K\textsubscript{enkel}C. Löser man sedan ut {\itshape T} detta får man enligt ekvation nedan. 
+Där \textdelta\textsubscript{h1}(s) är skillnaden i utsignalen (vattennivå) och C är höjden på steget in. Inverstransformerar man sedan detta och sätter \textdelta\textsubscript{u}(t) = 0,63K\textsubscript{enkel}C. Löser man sedan ut {\itshape T} detta får man enligt ekvation nedan. 
 
 \begin{equation}
 T = \frac{-t}{ln{0,37}} \approx t
@@ -103,16 +104,41 @@ Där tiden t är tiden då utsignalen nått upp till 0,63\% av differensen mella
 \\
 
 \subsubsection{Att ta fram K\textsubscript{dubbel}}
-
-\subsection{Framtagning av T och K\textsubscript{dubbel}}
-I förberedelseuppgifterna till laboration visades att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. Ekvationen för ett första ordningens system ser ut som i (1) nedan. Väl i laborationen sattes en arbetspunkt på 10cm och utifrån denna applicerades en spänningsökning som motsvarar ett enhetssteg. När nivån hade nått 10,63 lästes tidskonstanten, {\itshape T} ut som den tid det tagit från att steget applicerats. 
+K\textsubscript{dubbel} kan ges genom att skicka in ett steg i systemet och sedan göra mätningar vid stationärt tillstånd. Multiplicerar vi överföringsfunktionen med ett laplacetransformen för ett steg får vi. 
 
 \begin{equation}
-\delta_{h1}(t)= c*K_{enkel}*(1-e^{\frac{-t}{T}})
+\delta_{h2}(s) = \frac{K_{dubbel}}{(1+s)^2}*\frac{C}{s}
+\end{equation}
+\\
+Där \textdelta\textsubscript{h2}(s) är nivån i nedre tanken och C är spänningsdifferensen hos insignalen innan och efter steget givits. Genom att använda slutvärdessatsen kan man sedan finna slutlig nivå för systemet. 
+
+\begin{equation}
+\lim\limits_{t \to \infty}y(t) = \lim\limits_{s \to 0}sY(s)
+\end{equation}
+\\
+Detta ger att K\textsubscript{dubbel} kan lösas ut som. 
+
+\begin{equation}
+K_{dubbel} = \frac{\delta_{h2}(s)}{C}
 \end{equation}
 \\
 
+\subsection{Skapa lämpliga F\textsubscript{lead} och F\textsubscript{lag}}
+För att förbättra systemets egenskaper och uppnå givna specifikationer använder vi oss av metoder som Glad och Ljung (2006) beskriver rörande kompensering med hjälp av bodediagram. Denna metod kompletteras sedan med ett egenskrivet matlabscript, vilket finns i Appendix A, för snabbare beräkningar av F\textsubscript{lead} och F\textsubscript{lag}.
+
+\newpage
+
 \subsection{Materiel}
+Labbutrustningen som används består av en pump kopplad till ett system av två tankar. Pumpens utlopp ansluts till den övre tanken (tank 1), vars utlopp i sin tur kopplas till inloppet i den undre tanken (tank 2). Se bild nedan. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=70mm]{System.png}
+\caption{Visualisering av labuppkopplingen}
+\label{overflow}
+\end{figure}
+
+Pumpens reglersystem består av en spänningsregulator, mätsensorer för vattennivå samt programvara för PC baserad på LabView.
 
 \subsection{Specifikationer}
 
@@ -136,12 +162,10 @@ Försök & T \\ [0.5ex] % inserts table heading
 Medelvärdet på T räknades ut till T=18.4 och därmed var tidskonstanten bestämd. 
 Bestämningen av K\textsubscript{dubbel} gick till på liknande vis. En ekvation söktes för K\textsubscript{dubbel} och vid stationaritet kan slutvärdessatsen användas se ekvation 2. 
  
-\begin{equation}
-\lim\limits_{t \to \infty}y(t) = \lim\limits_{s \to 0}sY(s)
-\end{equation}
 \pagebreak
-\\
+
 Utsignalen för dubbeltankssystemet fås alltså vid stationaritet enligt ekvation 3 där u är den spänning som applicerats för att utföra steget. 
+
 \begin{equation}
 \delta_{h1}(t)=\lim\limits_{s \to 0}s*\frac{K_{dubbel}}{(1+s)^2}*\frac{u}{s}=uK_{dubbel}
 \end{equation}
@@ -169,13 +193,6 @@ Medelvärdet räknades ut till $\delta_{h2}=1,3$ vilket dividerat på u=0,05V ge
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=70mm]{System.png}
-\caption{Visualisering av labuppkopplingen}
-\label{overflow}
-\end{figure}
-
-\begin{figure}[ht!]
-\centering
 \includegraphics[width=90mm]{Test1_cut.jpg}
 \caption{Stegsvaret efter kompensering med F\textsubscript{lead} och F\textsubscript{lag}.}
 \label{overflow}
@@ -183,5 +200,21 @@ Medelvärdet räknades ut till $\delta_{h2}=1,3$ vilket dividerat på u=0,05V ge
 
 
 \section{Slutsats}
+
+\section{Källor}
+Glad, Torkel och Ljung, Lennart. 2006. \textit{Reglerteknik - Grundläggande teori}. Upplaga 4:10. Lund. Studentlitteratur AB.
+
+\newpage
+\section{Appendix A}
+\lstinputlisting{lab2_tankreglering.m}
+
+
+\subsection{Framtagning av T och K\textsubscript{dubbel}}
+I förberedelseuppgifterna till laboration visades att tidskonstanten, {\itshape T} fås av den tid det tar för stegsvaret att nå 63\% av slutvärdet. Ekvationen för ett första ordningens system ser ut som i (1) nedan. Väl i laborationen sattes en arbetspunkt på 10cm och utifrån denna applicerades en spänningsökning som motsvarar ett enhetssteg. När nivån hade nått 10,63 lästes tidskonstanten, {\itshape T} ut som den tid det tagit från att steget applicerats. 
+
+\begin{equation}
+\delta_{h1}(t)= c*K_{enkel}*(1-e^{\frac{-t}{T}})
+\end{equation}
+\\
 
 \end{document}
