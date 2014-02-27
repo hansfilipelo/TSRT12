@@ -11,6 +11,6 @@
 \contentsline {subsection}{\numberline {4.1}Konstanten T}{4}
 \contentsline {subsection}{\numberline {4.2}Konstanten K\textsubscript {dubbel}}{4}
 \contentsline {subsection}{\numberline {4.3}F\IeC {\"o}r\IeC {\"a}ndring av systemets egenskaper}{5}
-\contentsline {section}{\numberline {5}Slutsats}{6}
-\contentsline {section}{\numberline {6}K\IeC {\"a}llor}{7}
-\contentsline {section}{\numberline {7}Appendix A}{8}
+\contentsline {section}{\numberline {5}Slutsats}{7}
+\contentsline {section}{\numberline {6}K\IeC {\"a}llor}{8}
+\contentsline {section}{\numberline {7}Appendix A}{9}

@@ -250,7 +250,10 @@ Medelvärdet räknades ut till $\delta_{h2}=1,3$ vilket dividerat på u=0,05V ge
 
 \subsection{Förändring av systemets egenskaper}
 
-Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, metoderna i Glad och Ljung (2006), samt vårt matlabscript.
+Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, metoderna i Glad och Ljung (2006), samt vårt matlabscript. 
+\\
+\\
+Systemet hade parametrarna K = 0,43, \textbeta = 0.2, \texttau{\textsubscript{D}} = 8,40, {\textsubscript{I}} = 37,60 och \textgamma = 0,465. Vi fick då ett system som reglerade enligt figur nedan. 
 
 \begin{figure}[ht!]
 \centering
@@ -258,11 +261,24 @@ Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, 
 \caption{Stegsvaret efter kompensering med F\textsubscript{lead} och F\textsubscript{lag}.}
 \label{overflow}
 \end{figure}
+~\\
+Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%. Vi fick då en reglering som motsvarade specifikationen väl, se bild nedan. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{Test2_cut.jpg}
+\caption{Stegsvaret efter kompensering med F\textsubscript{lead} och F\textsubscript{lag}.}
+\label{overflow}
+\end{figure}
+~\\
+
+Systemet körs med parametrarna K = 0,43, \textbeta = 0.2, \texttau{\textsubscript{D}} = 8,40, {\textsubscript{I}} = 37,60 och \textgamma = 0,465. 
 
 % --------------------------------- Slutsats -------------------------
 
 \newpage
 \section{Slutsats}
+Resultatet visar att Faskompensering med Flead och Flag fungerar alldeles utmärkt. Ett problem med metoden är dock att alla parametrar är mer eller mindre beroende av varandra. Under laboration utfördes därför finjustering av kurvan med att gå tillbaka och ändra någon grundparameter (exempelvis överslängsparametern M) för sedan köra om skriptet och producera nya variabler utifrån ändringen.
 \newpage
 
 % --------------------------------- Källor -------------------------
