@@ -99,7 +99,7 @@ Syftet med laborationen var att färdigställa en överföringsfunktion för sys
 En överföringsfunktion för systemet var given enligt nedan. 
 
 \begin{equation}
-G\textsubscript{dubbel}(s) = \frac{K_{enkel1}}{sT+1} * \frac{K_{enkel2}}{sT+1} = \frac{K\textsubscript{dubbel}}{(sT+1)^2}
+G\textsubscript{dubbel}(s) = \frac{K_{enkel1}}{sT+1} \cdot \frac{K_{enkel2}}{sT+1} = \frac{K\textsubscript{dubbel}}{(sT+1)^2}
 \end{equation}
 \\
 Där {\itshape T}, K\textsubscript{enkel1} och K\textsubscript{enkel2} är konstanter. K\textsubscript{dubbel} är produkten av K\textsubscript{enkel1} och K\textsubscript{enkel2}. 
@@ -131,7 +131,7 @@ Där \textdelta\textsubscript{h1}(s) är skillnaden i utsignalen (vattennivå) o
 T = \frac{-t}{ln{0,37}} \approx t
 \end{equation}
 \\
-Där tiden t är tiden då utsignalen nått upp till 0,63\% av differensen mellan stationär vattennivån innan och efter stegskillnad getts i insignal. Man behöver alltså göra mätningar för att finna T. 
+Där tiden t är tiden då utsignalen nått upp till 63\% av differensen mellan stationär vattennivån innan och efter stegskillnad getts i insignal. Man behöver alltså göra mätningar för att finna T. 
 \\
 
 
@@ -259,7 +259,36 @@ Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, 
 \label{overflow}
 \end{figure}
 ~\\
-Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%. Vi fick då en reglering som motsvarade specifikationen väl, se bild nedan. 
+
+\newpage
+
+Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%.  \\
+~\\
+En Bodeplot av systemfunktionen FG ser ut som följer: 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{bode_Gny_cut.png}
+\caption{Bodeplott av FG}
+\label{overflow}
+\end{figure}
+~\\
+
+\newpage
+
+Tittar man istället på det anpassade och slutna systemet ser det ut som följer: 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{bode_Gc_cut.png}
+\caption{Bodeplott av stängt anpassat system}
+\label{overflow}
+\end{figure}
+~\\
+
+\newpage
+
+Vi prövade sedan hur vårt system reglerade de verkliga tankarna. Vi fick då ett system som motsvarade specifikationen väl, se bild nedan.
 
 \begin{figure}[ht!]
 \centering

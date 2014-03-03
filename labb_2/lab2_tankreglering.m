@@ -15,7 +15,7 @@ B=0.13;
 Gwcd=freqresp(G,wcd);
 phi_md=180+angle(Gwcd)*(180/pi);
 
-phi_max = phi_m - phi_md + 6
+phi_max = phi_m - phi_md + 6 % Tumregel vid konstruktion av Flead + Flag
 
 %--------------------Med beta---------
 
