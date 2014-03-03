@@ -125,7 +125,13 @@ Konstanten {\itshape T} går att finna genom att skicka in ett steg i systemet o
 \delta_{h1}(s) = \frac{C * K_{enkel1}}{sT+1}\frac{1}{s}
 \end{equation}
 \\
-Där \textdelta\textsubscript{h1}(s) är skillnaden i utsignalen (vattennivå) och C är höjden på steget in. Inverstransformerar man sedan detta och sätter \textdelta\textsubscript{u}(t) = 0,63K\textsubscript{enkel}C. Löser man sedan ut {\itshape T} detta får man enligt ekvation nedan. 
+Där \textdelta\textsubscript{h1}(s) är skillnaden i utsignalen (vattennivå) och C är höjden på steget in. Inverstransformerar man sedan detta och sätter: 
+
+\begin{equation}
+\delta_{u}(t) = C{\cdot}K_{enkel}(1-e^{(-\frac{t}{T})}) = 0,63K_{enkel}C 
+\end{equation}
+~\\
+Löser man sedan ut {\itshape T} ur detta får man enligt ekvation nedan. 
 
 \begin{equation}
 T = \frac{-t}{ln{0,37}} \approx t
@@ -178,6 +184,7 @@ Stationärt fel: e\textsubscript{0} & 5\% \\
 \end{tabular} 
 \caption{Önskade specifikationer.}
 \end{table}
+~\\
 
 \newpage
 
@@ -262,7 +269,7 @@ Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, 
 
 \newpage
 
-Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%.  \\
+Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%. Systemet hade parametrarna K = 0,55, \textbeta = 0.13, \texttau{\textsubscript{D}} = 8,2, {\textsubscript{I}} = 29,63 och \textgamma = 0,59. \\
 ~\\
 En Bodeplot av systemfunktionen FG ser ut som följer: 
 
