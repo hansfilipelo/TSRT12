@@ -169,7 +169,13 @@ K_{dubbel} = \frac{\delta_{h2}(s)}{C}
 \subsection{Anpassning av systemets egenskaper}
 För att förbättra systemets egenskaper och uppnå givna specifikationer använder vi oss av metoder som Glad och Ljung (2006) beskriver rörande kompensering med hjälp av bodediagram. Denna metod kompletteras sedan med ett egenskrivet matlabscript, vilket finns tillgängligt i Appendix A, för snabbare beräkningar av F\textsubscript{lead} och F\textsubscript{lag}. 
 \\
-\\
+~\\
+Utöver de metoder som beskrivs av Glad och Ljung (2006) använder vi oss även av två så kallade tumregeler för anpassning av system med F\textsubscript{lead} och F\textsubscript{lag}-komponenter. Dels ökar vi \textphi\textsubscript{max} med 6 grader för att kompensera för marginalfelet F\textsubscript{lag} ger upphov till. Vi använder oss också av att: 
+
+\begin{equation}
+T_{i} = \frac{10}{\omega_{c,d}}
+\end{equation}
+~\\
 De specifikationer slutgiltiga systemet skulle följa var enligt nedan. 
 
 \begin{table}[ht] 
@@ -185,8 +191,6 @@ Stationärt fel: e\textsubscript{0} & 5\% \\
 \caption{Önskade specifikationer.}
 \end{table}
 ~\\
-
-\newpage
 
 
 % ------------- Materiel -----------------------
@@ -268,10 +272,23 @@ Vi beräknade först ett reglersystem med hjälp av de givna specifikationerna, 
 ~\\
 
 \newpage
-
+~\\
 Som synes presterar systemet väldigt nära specifikationerna - men stigtiden möter tyvärr inte riktigt kraven. Vi försökte då justera systemets stigtid till 4 sekunder. Tyvärr resulterade detta i en för stor översläng för systemet. Vi justerade då även ner kravet på översläng till 7\% istället för 10\%. Systemet hade parametrarna K = 0,55, \textbeta = 0.13, \texttau{\textsubscript{D}} = 8,2, {\textsubscript{I}} = 29,63 och \textgamma = 0,59. \\
 ~\\
-En Bodeplot av systemfunktionen FG ser ut som följer: 
+
+Såhär såg bodeplotten ut innan vi anpassat systemet. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{bode_G_cut.png}
+\caption{Bodeplott av G}
+\label{overflow}
+\end{figure}
+~\\
+
+\newpage
+
+En Bodeplot av systemfunktionen för det anpassade systemet FG ser ut som följer: 
 
 \begin{figure}[ht!]
 \centering
